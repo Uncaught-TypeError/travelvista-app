@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&family=Rozha+One&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.truncated {
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+}
+
+
+.font-rozha{
+    font-family: 'Rozha One', serif;
+}
+
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* body {
+    padding-top: 64px;
+} */
+
+.bg-white2 {
+    background-color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+}
+
+.PopNote{
+    transition: 0.5s;
+}
+
+.PopNote:hover{
+    background: rgba(0, 0, 0, 0.5);
+}
+.PopNote .spans{
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.PopNote:hover .spans{
+    bottom: 45%;
+    opacity: 1;
+}
+
+.text-mask{
+    background: url("https://media.giphy.com/media/JoyXDxdH0A4BC3G32Y/giphy.gif");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    color: #00000047;
+}
+
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.first-image{
+    cursor: pointer;
+}
+
+.second-image {
+    cursor: pointer;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.image-container:hover .first-image {
+    visibility: hidden;
+}
+
+.image-container:hover .second-image {
+    visibility: visible;
+    opacity: 1;
+}
+/* @layer components {
+    .fileInput {
+        @apply block w-full border-gray-500 text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-gray-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-gray-700 hover:file:bg-gray-200;
+    }
+} */
+
+
