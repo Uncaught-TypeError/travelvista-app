@@ -61,27 +61,32 @@
                 <div class="flex justify-center items-center flex-wrap gap-4 p-5">
                     @foreach ($tours as $tour)
                         <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl tour-item hidden">
-                            <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
-                                <img src="{{ $tour->image }}" class="object-cover w-full h-full" alt="Tour Image">
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-3xl font-bold text-black">{{ $tour->tour_name }}</span>
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-xl text-black">{{ $tour->destination }}</span>
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-lg text-black">$ {{ $tour->price }} / per</span>
-                            </div>
-                            <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3">
-                                <a href="" class="text-black text-sm">Book Now</a>
-                            </div>
+                            <a href="{{ route('offers.view.TourDetail', $tour->id) }}">
+                                <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
+                                    @if ($tour->image && Storage::exists($tour->image))
+                                        <img alt="content" class="object-cover object-center h-full w-full" src="{{ Storage::url($tour->image) }}">
+                                    @else
+                                        <img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1200x500">
+                                    @endif
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-3xl font-bold text-black">{{ $tour->tour_name }}</span>
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-xl text-black">{{ $tour->destination }}</span>
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-lg text-black">$ {{ $tour->price }} / per</span>
+                                </div>
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3 cursor-pointer">
+                                    <a href="" class="text-black text-sm">Book Now</a>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
-                    
                 </div>
                 <div class="flex flex-row justify-center items-center m-3">
-                    <div id="showMoreButtonTour" class="py-2 px-5 border border-black text-black rounded-xl hover:bg-gray-100 items-center content-center mt-3">
+                    <div id="showMoreButtonTour" class="py-2 px-5 border border-black text-black rounded-xl hover:bg-gray-100 items-center content-center mt-3 cursor-pointer">
                         <span class="text-sm">Show More</span>
                     </div>
                 </div>
@@ -98,27 +103,33 @@
                 <div class="flex justify-center items-center flex-wrap gap-4 p-5">
                     @foreach ($packages as $package)
                         <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl package-item hidden">
-                            <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
-                                <img src="{{ $package->image }}" class="object-cover w-full h-full" alt="">
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-3xl font-bold text-black">{{ $package->package_name }}</span>
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-xl text-black">{{ $package->destination }}</span>
-                            </div>
-                            <div class="p-1 text-center">
-                                <span class="font-roboto text-lg text-black">$ {{ $package->price }} / per</span>
-                            </div>
-                            <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3">
-                                <a href="" class="text-black text-sm">Book Now</a>
-                            </div>
+                            <a href="{{ route('offers.view.PackageDetail', $package->id) }}">
+                                <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
+                                    @if ($package->image && Storage::exists($package->image))
+                                        <img alt="content" class="object-cover object-center h-full w-full" src="{{ Storage::url($package->image) }}">
+                                    @else
+                                        <img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1200x500">
+                                    @endif
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-3xl font-bold text-black">{{ $package->package_name }}</span>
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-xl text-black">{{ $package->destination }}</span>
+                                </div>
+                                <div class="p-1 text-center">
+                                    <span class="font-roboto text-lg text-black">$ {{ $package->price }} / per</span>
+                                </div>
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3 cursor-pointer">
+                                    <a href="" class="text-black text-sm">Book Now</a>
+                                </div>
+                            </a>
                         </div>
                     @endforeach
-                    
+
                 </div>
                 <div class="flex flex-row justify-center items-center m-3">
-                    <div id="showMoreButtonPackage" class="py-2 px-5 border border-black text-black rounded-xl hover:bg-gray-100 items-center content-center mt-3">
+                    <div id="showMoreButtonPackage" class="py-2 px-5 border border-black text-black rounded-xl hover:bg-gray-100 items-center content-center mt-3 cursor-pointer">
                         <span class="text-sm">Show More</span>
                     </div>
                 </div>

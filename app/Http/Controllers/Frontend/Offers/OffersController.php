@@ -20,6 +20,16 @@ class OffersController extends Controller
         return view('frontend.website.offers.offer', compact('tours', 'packages'));
     }
 
+    public function viewTourDetail(Tour $tour)
+    {
+        // dd($tour);
+        return view('frontend.website.offers.tourdetail', compact('tour'));
+    }
+
+    public function viewPackageDetail(Package $package)
+    {
+        return view('frontend.website.offers.packagedetail', compact('package'));
+    }
     /**
      * Show the form for creating a new resource.
      */

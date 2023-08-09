@@ -49,7 +49,11 @@ Route::get('/', function () {
 
 //FrontEnd
 Route::resource('/abouts', AboutController::class);
+
 Route::resource('/offers', OffersController::class);
+Route::get('/offers/viewTourDetail/{tour}', [OffersController::class, 'viewTourDetail'])->name('offers.view.TourDetail');
+Route::get('/offers/viewPackageDetail/{package}', [OffersController::class, 'viewPackageDetail'])->name('offers.view.PackageDetail');
+
 Route::resource('/contacts', ContactsController::class);
 Route::resource('/bookings', BookingsController::class);
 Route::resource('/touroffers', TourOffersController::class);
