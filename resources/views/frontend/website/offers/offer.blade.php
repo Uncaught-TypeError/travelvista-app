@@ -126,7 +126,6 @@
                             </a>
                         </div>
                     @endforeach
-
                 </div>
                 <div class="flex flex-row justify-center items-center m-3">
                     <div id="showMoreButtonPackage" class="py-2 px-5 border border-black text-black rounded-xl hover:bg-gray-100 items-center content-center mt-3 cursor-pointer">
