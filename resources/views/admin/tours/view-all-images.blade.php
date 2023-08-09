@@ -97,5 +97,4 @@
             </div>
         </div>
     </x-slot>
-    <script src="{{ mix('node_modules/flowbite/dist/flowbite.min.js') }}"></script>
 </x-admin-layout>

@@ -40,7 +40,7 @@
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <span class="flex items-center justify-center text-3xl p-5 font-rozha">
-                            Image Gallery of {{ $tour->tour_name }}
+                            Image Gallery of {{ $package->package_name }}
                         </span>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
                             <div class="grid gap-4">

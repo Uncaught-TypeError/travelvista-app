@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend\Gallery;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -10,11 +12,24 @@ class GalleryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function galleryTourIndex(Tour $tour)
     {
-        //
+        return view('frontend.website.gallery.tourgallery', compact('tour'));
     }
 
+    public function galleryPackageIndex(Package $package)
+    {
+        return view('frontend.website.gallery.packagegallery', compact('package'));
+    }
+
+    public function viewAllTourImage(){
+        $tours = Tour::all();
+        return view('frontend.website.gallery.alltourgallery', compact('tours'));
+    }
+    public function viewAllPackageImage(){
+        $packages = Package::all();
+        return view('frontend.website.gallery.allpackagegallery', compact('packages'));
+    }
     /**
      * Show the form for creating a new resource.
      */

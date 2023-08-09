@@ -23,25 +23,30 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
+                    @if (Route::has('login'))
+                        @auth
+                            <span class="pl-2 capitalize">{{ Auth::user()->name }}</span>
+                        @endauth
+                    @endif
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ml-1 text-gray-500">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
                 <ul id="dropdown-menu2" class="absolute hidden z-10 w-36 py-1 mt-2 bg-white">
                     @if (Route::has('login'))
-                        {{-- <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10"> --}}
-                            @auth
-                                <li class="border-t flex justify-center items-center"><a href="{{ route('userprofile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Profile</a></li>
-                                <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
-                                <li class="border-t flex justify-center items-center"><a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Dashboard</a></li>
-                                <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Log Out</a></li>
-                            @else
-                                <li class="border-t flex justify-center items-center"><a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Log in</a></li>
-                                @if (Route::has('register'))
-                                    <li class="border-t flex justify-center items-center"><a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Register</a></li>
-                                @endif
-                            @endauth
-                        {{-- </div> --}}
+                        @auth
+                        @unlessrole('admin')
+                            <li class="border-t flex justify-center items-center"><a href="{{ route('userprofile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Profile</a></li>
+                            <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
+                        @endunlessrole
+                            <li class="border-t flex justify-center items-center"><a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Dashboard</a></li>
+                            <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Log Out</a></li>
+                        @else
+                            <li class="border-t flex justify-center items-center"><a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Log in</a></li>
+                            @if (Route::has('register'))
+                                <li class="border-t flex justify-center items-center"><a href="{{ route('register') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Register</a></li>
+                            @endif
+                        @endauth
                     @endif
                 </ul>
             </div>
@@ -76,14 +81,21 @@
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
+                    @if (Route::has('login'))
+                        @auth
+                            <span class="hidden md:block pl-0 md:pl-2 capitalize">{{ Auth::user()->name }}</span>
+                        @endauth
+                    @endif
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1 text-gray-500">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
                 <ul id="dropdown-menu3" class="absolute hidden z-10 w-36 py-1 mt-2 bg-white">
                     @auth
+                    @unlessrole('admin')
                     <li><a href="{{ route('userprofile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Profile</a></li>
                     <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
+                    @endunlessrole
                     <li><a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Dashboard</a></li>
                     <li class="border-t">
                         <a href="{{ route('logout') }}"

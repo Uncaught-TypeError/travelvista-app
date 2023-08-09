@@ -141,7 +141,7 @@
             </div>
             <div class="flex justify-center items-center">
                 <div class="mt-10">
-                    <a href="{{ route('gallery.tour.index') }}" class="text-black text-sm sm:text-base border border-black hover:bg-gray-200 py-2 md:py-3 px-3 sm:px-4 md:px-5">Learn More</a>
+                    <a href="" class="text-black text-sm sm:text-base border border-black hover:bg-gray-200 py-2 md:py-3 px-3 sm:px-4 md:px-5">Learn More</a>
                 </div>
             </div>
         </section>
@@ -158,10 +158,10 @@
                     <span class="text-base pt-2">Famous tours and packages we provided</span>
                 </div>
             </section>
-            <section class="flex flex-col justify-center items-center mt-5 bg-gray-50 w-full sm:w-auto mx-0 sm:mx-24 rounded-lg">
+            <section class="flex flex-col justify-center items-center mt-5 w-full sm:w-auto mx-0 sm:mx-24 rounded-lg">
                 <div class="flex justify-center items-center flex-wrap gap-4 p-5">
                     @foreach ($tours as $tour)
-                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl bg-gray-50">
+                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl ">
                             <a href="{{ route('offers.view.TourDetail', $tour->id) }}">
                                 <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
                                     @if ($tour->image && Storage::exists($tour->image))
@@ -179,14 +179,14 @@
                                 <div class="p-1 text-center">
                                     <span class="font-roboto text-lg text-black">$ {{ $tour->price }} / per</span>
                                 </div>
-                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3">
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-100 items-center content-center mt-3">
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>
                         </div>
                     @endforeach
                     @foreach ($packages as $package)
-                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl bg-gray-50">
+                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl ">
                             <a href="{{ route('offers.view.PackageDetail', $package->id) }}">
                                 <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
                                     @if ($package->image && Storage::exists($package->image))
@@ -204,7 +204,7 @@
                                 <div class="p-1 text-center">
                                     <span class="font-roboto text-lg text-black">$ {{ $package->price }} / per</span>
                                 </div>
-                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3">
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-100 items-center content-center mt-3">
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>

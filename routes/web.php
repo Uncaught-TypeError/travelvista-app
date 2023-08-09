@@ -58,8 +58,13 @@ Route::resource('/contacts', ContactsController::class);
 Route::resource('/bookings', BookingsController::class);
 Route::resource('/touroffers', TourOffersController::class);
 Route::resource('/packageoffers', PackageOffersController::class);
+
+Route::get('/gallery/viewAllTourImage', [GalleryController::class, 'viewAllTourImage'])->name('gallery.viewAllTourImage');
+Route::get('/gallery/viewAllPackageImage', [GalleryController::class, 'viewAllPackageImage'])->name('gallery.viewAllPackageImage');
 Route::resource('/gallery', GalleryController::class);
-Route::get('/gallery/tour', [GalleryController::class, 'galleryTourIndex'])->name('gallery.tour.index');
+Route::get('/gallery/tour/{tour}', [GalleryController::class, 'galleryTourIndex'])->name('gallery.tour.index');
+Route::get('/gallery/package/{package}', [GalleryController::class, 'galleryPackageIndex'])->name('gallery.package.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -75,7 +80,7 @@ Route::get('/userprofile', function () {
 
     $userProfile = UserProfile::where('user_id', $userId)->first();
     return view('userprofile', compact('userProfile', 'tourBeenCount', 'totalReviews', 'packagesBeenCount'));
-})->middleware(['auth', 'verified'])->name('userprofile');
+})->middleware(['admin.check','auth', 'verified'])->name('userprofile');
 
 Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->group(function() {
 

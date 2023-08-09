@@ -78,7 +78,7 @@
                                 <div class="p-1 text-center">
                                     <span class="font-roboto text-lg text-black">$ {{ $tour->price }} / per</span>
                                 </div>
-                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3 cursor-pointer">
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-100 items-center content-center mt-3 cursor-pointer">
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>
@@ -120,7 +120,7 @@
                                 <div class="p-1 text-center">
                                     <span class="font-roboto text-lg text-black">$ {{ $package->price }} / per</span>
                                 </div>
-                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-200 items-center content-center mt-3 cursor-pointer">
+                                <div class="py-2 px-5 bg-white border border-black rounded-lg hover:bg-gray-100 items-center content-center mt-3 cursor-pointer">
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>
