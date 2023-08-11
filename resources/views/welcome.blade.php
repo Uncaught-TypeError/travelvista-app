@@ -155,13 +155,13 @@
             <section class="flex justify-center items-center">
                 <div class="flex flex-col text-center p-2">
                     <span class="capitalize font-rozha text-4xl sm:text-5xl">Tours & Packages</span>
-                    <span class="text-base pt-2">Famous tours and packages we provided</span>
+                    <span class="text-base pt-2">Famous tours and packages of us</span>
                 </div>
             </section>
             <section class="flex flex-col justify-center items-center mt-5 w-full sm:w-auto mx-0 sm:mx-24 rounded-lg">
                 <div class="flex justify-center items-center flex-wrap gap-4 p-5">
                     @foreach ($tours as $tour)
-                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl ">
+                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl relative">
                             <a href="{{ route('offers.view.TourDetail', $tour->id) }}">
                                 <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
                                     @if ($tour->image && Storage::exists($tour->image))
@@ -183,10 +183,20 @@
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>
+                            {{-- @php
+                                $bookings = $tour->bookings;
+                                dd($bookings);
+                            @endphp --}}
+                            @if ($tour->bookings->isNotEmpty())
+                                <div class="absolute bg-gray-500 opacity-50 w-full h-full z-10"></div>
+                                <span class="absolute flex justify-center items-center top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white p-2 z-20 w-full font-bold text-xl">
+                                    Sold Out!
+                                </span>
+                            @endif
                         </div>
                     @endforeach
                     @foreach ($packages as $package)
-                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl ">
+                        <div class="flex flex-col transition-transform transform hover:scale-110 justify-center items-center content-center p-10 border border-gray-300 rounded-xl relative">
                             <a href="{{ route('offers.view.PackageDetail', $package->id) }}">
                                 <div class="w-40 h-40 rounded-full overflow-hidden m-3 text-center">
                                     @if ($package->image && Storage::exists($package->image))
@@ -208,7 +218,12 @@
                                     <a href="" class="text-black text-sm">Book Now</a>
                                 </div>
                             </a>
-
+                            @if ($package->packagebookings->isNotEmpty())
+                                <div class="absolute bg-gray-500 opacity-50 w-full h-full z-10"></div>
+                                <span class="absolute flex justify-center items-center top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white p-2 z-20 w-full font-bold text-xl">
+                                    Sold Out!
+                                </span>
+                            @endif
                         </div>
                     @endforeach
                 </div>

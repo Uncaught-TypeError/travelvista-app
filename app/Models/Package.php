@@ -23,4 +23,9 @@ class Package extends Model
     {
         return $this->hasMany(Preview::class);
     }
+
+    public function packagebookings()
+    {
+        return $this->hasMany(PackageBooking::class);
+    }
 }

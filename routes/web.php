@@ -3,7 +3,7 @@
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\Offers\OffersController;
 use App\Http\Controllers\Frontend\ContactsController;
-use App\Http\Controllers\Frontend\BookingsController;
+use App\Http\Controllers\Frontend\Booking\BookingsController;
 use App\Http\Controllers\Frontend\Offers\TourOffersController;
 use App\Http\Controllers\Frontend\Offers\PackageOffersController;
 use App\Http\Controllers\Frontend\Gallery\GalleryController;
@@ -42,8 +42,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $tours = Tour::take(2)->get();
-    $packages = Package::take(2)->get();
+    $tours = Tour::inRandomOrder()->take(2)->get();
+    $packages = Package::inRandomOrder()->take(2)->get();
     return view('welcome', compact('tours', 'packages'));
 })->name('home');
 
@@ -53,9 +53,16 @@ Route::resource('/abouts', AboutController::class);
 Route::resource('/offers', OffersController::class);
 Route::get('/offers/viewTourDetail/{tour}', [OffersController::class, 'viewTourDetail'])->name('offers.view.TourDetail');
 Route::get('/offers/viewPackageDetail/{package}', [OffersController::class, 'viewPackageDetail'])->name('offers.view.PackageDetail');
+Route::post('/offers/search', [OffersController::class, 'searchTour'])->name('offers.search');
+Route::post('/offers/search2', [OffersController::class, 'searchTour2'])->name('offers.search2');
+
 
 Route::resource('/contacts', ContactsController::class);
+
+//Careful with the similar controller name
+Route::get('/bookings/tours', [BookingsController::class, 'tourIndex'])->name('bookings.tour.index');
 Route::resource('/bookings', BookingsController::class);
+
 Route::resource('/touroffers', TourOffersController::class);
 Route::resource('/packageoffers', PackageOffersController::class);
 

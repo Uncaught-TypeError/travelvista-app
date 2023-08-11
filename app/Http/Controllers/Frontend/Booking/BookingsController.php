@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Frontend\Booking;
 
 use App\Http\Controllers\Controller;
+use App\Models\Package;
+use App\Models\Tour;
 use Illuminate\Http\Request;
 
 class BookingsController extends Controller
@@ -12,7 +14,15 @@ class BookingsController extends Controller
      */
     public function index()
     {
-        //
+        return view('frontend.website.bookings.bookings');
+    }
+
+    public function tourIndex()
+    {
+        $tours = Tour::whereDoesntHave('bookings')->get();
+        $tourfilter = null;
+        $packagefilter = null;
+        return view('frontend.website.bookings.tour.index', compact('tours', 'tourfilter', 'packagefilter'));
     }
 
     /**
