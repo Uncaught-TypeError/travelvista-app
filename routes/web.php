@@ -10,6 +10,9 @@ use App\Http\Controllers\Frontend\Gallery\GalleryController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\Frontend\Booking\PackagebookingsController;
+use App\Http\Controllers\frontend\Booking\UserbookingController;
+use App\Http\Controllers\Frontend\SuccessController;
 use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
@@ -60,8 +63,41 @@ Route::post('/offers/search2', [OffersController::class, 'searchTour2'])->name('
 Route::resource('/contacts', ContactsController::class);
 
 //Careful with the similar controller name
-Route::get('/bookings/tours', [BookingsController::class, 'tourIndex'])->name('bookings.tour.index');
-Route::resource('/bookings', BookingsController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bookings/tours', [BookingsController::class, 'tourIndex'])->name('bookings.tour.index');
+    Route::get('/pbookings/packages', [PackagebookingsController::class, 'packageIndex'])->name('pbookings.package.index');
+
+
+    Route::resource('/bookings', BookingsController::class);
+    Route::resource('/pbookings', PackagebookingsController::class);
+
+    Route::post('/bookings/tourSearch', [BookingsController::class, 'searchTour'])->name('tours.search');
+    Route::post('/bookings/tour/map', [BookingsController::class, 'searchMap'])->name('bookings.map.search');
+
+    Route::post('/pbookings/packageSearch', [PackagebookingsController::class, 'searchPackage'])->name('packages.search');
+    Route::post('/pbookings/package/map', [PackagebookingsController::class, 'searchMap'])->name('pbookings.map.search');
+
+    Route::get('/bookings/tour/createOne/{tour}', [BookingsController::class, 'createOne'])->name('bookings.tour.createOne');
+    Route::post('/bookings/tour/store/createOne', [BookingsController::class, 'storecreateOne'])->name('bookings.tour.store.createOne');
+
+    Route::get('/pbookings/package/stepOne/{package}', [PackagebookingsController::class, 'stepOne'])->name('pbookings.stepOne');
+    Route::get('/pbookings/package/stepTwo', [PackagebookingsController::class, 'stepTwo'])->name('pbookings.stepTwo');
+    Route::post('/pbookings/package/store/stepOne', [PackagebookingsController::class, 'storestepOne'])->name('pbookings.store.stepOne');
+    Route::post('/pbookings/package/store/stepTwo', [PackagebookingsController::class, 'storestepTwo'])->name('pbookings.store.stepTwo');
+    Route::post('/pbookings/package/store/stepThree', [PackagebookingsController::class, 'storestepThree'])->name('pbookings.store.stepThree');
+
+    Route::get('/bookings/tour/createTwo', [BookingsController::class, 'createTwo'])->name('bookings.tour.createTwo');
+    Route::post('/bookings/tour/store/createTwo', [BookingsController::class, 'storecreateTwo'])->name('bookings.tour.store.createTwo');
+
+    Route::post('/bookings/tour/store/createThree', [BookingsController::class, 'storecreateThree'])->name('bookings.tour.store.createThree');
+
+
+    Route::resource('/userbookings', UserbookingController::class);
+});
+
+
+// Route::resource('/success', SuccessController::class);
+// Route::get('/bookings/tour/createThree', [BookingsController::class, 'createThree'])->name('bookings.tour.createThree');
 
 Route::resource('/touroffers', TourOffersController::class);
 Route::resource('/packageoffers', PackageOffersController::class);

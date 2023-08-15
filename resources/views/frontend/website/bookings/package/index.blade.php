@@ -37,28 +37,27 @@
 
         <section class="mt-28 py-5">
             <div class="flex flex-col justify-center items-center text-center">
-                {{-- Responsive --}}
-                <span class="text-4xl sm:text-5xl font-rozha p-2">Welcome to the Tour Page!</span>
+                <span class="text-4xl sm:text-5xl font-rozha p-2">Welcome to the Package Page!</span>
                 <span class="font-roboto p-2">Do you wish to -</span>
             </div>
             <div class="flex flex-col gap-5 sm:gap-0 sm:flex-row justify-evenly items-center py-4">
-                <a href="#searchToursDestination" class="flex items-center justify-center">
+                <a href="#searchPackagesDestination" class="flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
                     </svg>
                     <div class="p-2 border border-black rounded-xl flex justify-center items-center hover:bg-gray-600 hover:text-white">
-                        Search Tours
+                        Search Packages
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                         </svg>
                     </div>
                 </a>
-                <a href="#browseTours" class="flex items-center justify-center">
+                <a href="#browsePackages" class="flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
                     </svg>
                     <div class="p-2 border border-black rounded-xl flex justify-center items-center hover:bg-gray-600 hover:text-white">
-                        Browse Tours
+                        Browse Packages
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                         </svg>
@@ -78,7 +77,7 @@
             </div>
         </section>
 
-        <section class="mt-10 relative py-5" id="searchToursDestination">
+        <section class="mt-10 relative py-5" id="searchpackagesDestination">
             <section class="flex justify-center items-center">
                 <div class="flex flex-col text-center p-2">
                     <span class="capitalize relative font-rozha text-4xl sm:text-5xl flex justify-center items-center py-1 px-6">
@@ -88,15 +87,14 @@
                         Find Destination
                         <span class="absolute text-sm text-orange-400 top-0 right-0">BETA</span>
                     </span>
-                    <span class="text-base pt-2">Find Any Destinations from <span class="underline">Tours</span></span>
+                    <span class="text-base pt-2">Find Any Destinations from <span class="underline">Packages</span></span>
                 </div>
             </section>
-            <form class="flex justify-center items-center mt-5" method="POST" action="{{ route('tours.search') }}">
+            <form class="flex justify-center items-center mt-5" method="POST" action="{{ route('packages.search') }}">
                 @csrf
-                {{-- Responsive --}}
                 <div class="flex w-1/2 sm:w-1/3">
                     <div class="relative w-full">
-                        <input type="search" id="tourdestination" name="tourdestination" class="z-20 block w-full rounded-lg border border-gray-300  bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-gray-500 focus:ring-gray-500" placeholder="Search Destination..." required autocomplete="off" />
+                        <input type="search" id="packagedestination" name="packagedestination" class="z-20 block w-full rounded-lg border border-gray-300  bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-gray-500 focus:ring-gray-500" placeholder="Search Destination..." required autocomplete="off" />
 
                         <button type="submit" class="absolute right-0 top-0 h-full rounded-r-lg border border-gray-700 bg-gray-700 p-2.5 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-300">
                             <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -107,22 +105,22 @@
                     </div>
                 </div>
             </form>
-            @if ($tourfilter)
+            @if ($packagefilter)
             <section class="body-font text-gray-600">
                 <div class="container mx-auto px-5 py-20">
                     <div class="-m-2 flex flex-wrap justify-center">
                         {{-- Display the search results --}}
-                            @foreach ($tourfilter as $tf)
-                            <a class="w-full p-2 md:w-1/2 lg:w-1/3" href="{{ route('offers.view.TourDetail', $tf->id) }}">
+                            @foreach ($packagefilter as $pf)
+                            <a class="w-full p-2 md:w-1/2 lg:w-1/3" href="{{ route('offers.view.PackageDetail', $pf->id) }}">
                                 <div class="flex h-full items-center rounded-lg border border-gray-200 p-4 transform transition-transform hover:scale-110 hover:bg-gray-100">
-                                    @if ($tf->image && Storage::exists($tf->image))
-                                        <img alt="content" class="mr-4 h-16 w-16 flex-shrink-0 rounded-full bg-gray-100 object-cover object-center" src="{{ Storage::url($tf->image) }}">
+                                    @if ($pf->image && Storage::exists($pf->image))
+                                        <img alt="content" class="mr-4 h-16 w-16 flex-shrink-0 rounded-full bg-gray-100 object-cover object-center" src="{{ Storage::url($pf->image) }}">
                                     @else
                                         <img alt="content" class="mr-4 h-16 w-16 flex-shrink-0 rounded-full bg-gray-100 object-cover object-center" src="https://dummyimage.com/80x80">
                                     @endif
                                     <div class="flex-grow">
-                                        <h2 class="title-font font-medium text-gray-900">{{ $tf->destination }}</h2>
-                                        <p class="text-gray-500">{{ $tf->tour_name }}</p>
+                                        <h2 class="title-font font-medium text-gray-900">{{ $pf->destination }}</h2>
+                                        <p class="text-gray-500">{{ $pf->package_name }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -146,18 +144,18 @@
                                 @php
                                     $count = 2;
                                 @endphp
-                                @if ($tourInfomation)
-                                    @if ($tourInfomation->count() >= 2)
+                                @if ($packageInfomation)
+                                    @if ($packageInfomation->count() >= 2)
                                     <div class="relative flex flex-wrap rounded bg-white py-6 shadow-md">
                                         <div class="px-6 lg:w-1/2">
                                             <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Avaliability</h2>
-                                            <p class="mt-1 truncated">There are {{ $tourInfomation->count() }} tours.</p>
+                                            <p class="mt-1 truncated">There are {{ $packageInfomation->count() }} packages.</p>
                                         </div>
                                         <div class="mt-4 px-6 lg:mt-0 lg:w-1/2 flex flex-col">
-                                            <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Tour Names</h2>
+                                            <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Package Names</h2>
                                             <div class="flex flex-wrap">
-                                                @foreach ($tourInfomation as $tf)
-                                                    <a href="{{ route('offers.view.TourDetail', $tf->id) }}" class="leading-relaxed font-semibold">{{ $tf->tour_name }}</a>
+                                                @foreach ($packageInfomation as $tf)
+                                                    <a href="{{ route('offers.view.PackageDetail', $tf->id) }}" class="leading-relaxed font-semibold">{{ $tf->package_name }}</a>
                                                 @endforeach
                                             </div>
                                             </div>
@@ -166,13 +164,13 @@
                                         <div class="relative flex flex-wrap rounded bg-white py-6 shadow-md">
                                             <div class="px-6 lg:w-1/2">
                                                 <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Avaliability</h2>
-                                                <p class="mt-1 truncated">There is {{ $tourInfomation->count() }} tours.</p>
+                                                <p class="mt-1 truncated">There is {{ $packageInfomation->count() }} packages.</p>
                                             </div>
                                             <div class="mt-4 px-6 lg:mt-0 lg:w-1/2">
-                                                <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Tour Names</h2>
+                                                <h2 class="title-font text-xs font-semibold tracking-widest text-gray-900">Package Names</h2>
                                                 <div class="flex flex-wrap">
-                                                    @foreach ($tourInfomation as $tf)
-                                                        <a href="{{ route('offers.view.TourDetail', $tf->id) }}" class="leading-relaxed font-semibold">{{ $tf->tour_name }}</a>
+                                                    @foreach ($packageInfomation as $pf)
+                                                        <a href="{{ route('offers.view.TourDetail', $pf->id) }}" class="leading-relaxed font-semibold">{{ $pf->package_name }}</a>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -182,9 +180,8 @@
                             </div>
                         </div>
                     </section>
-                    <form class="flex flex-col justify-center items-center mt-5" method="POST" action="{{ route('bookings.map.search') }}">
+                    <form class="flex flex-col justify-center items-center mt-5" method="POST" action="{{ route('pbookings.map.search') }}">
                         @csrf
-                        {{-- Responsive --}}
                         <div class="flex w-1/2 sm:w-1/3">
                             <div class="relative w-full">
                                 <input type="search" id="mapDestination" name="mapDestination" class="z-20 block w-full rounded-lg border border-gray-300  bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-gray-500 focus:ring-gray-500" placeholder="Search Places..." required autocomplete="off" />
@@ -197,7 +194,6 @@
                                 </button>
                             </div>
                         </div>
-                        {{-- responsive --}}
                         <span class="text-xs sm:text-sm p-2 text-gray-600 uppercase">
                             Enter Any Places
                         </span>
@@ -206,19 +202,17 @@
             </div>
         </section>
 
-        <section class="relative py-5 mt-20" id="browseTours">
-            {{-- Responsive --}}
+        <section class="relative py-5 mt-20" id="browsePackages">
             <section class="flex flex-col xl:flex-row justify-center items-center relative">
                 <div class="flex flex-col text-center p-2">
                     <span class="capitalize relative font-rozha text-4xl sm:text-5xl flex justify-center items-center py-1 px-6">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
                         </svg>
-                        Tour Collection
+                        Package Collection
                     </span>
-                    <span class="text-base pt-2">Every Tours Available We Provided</span>
+                    <span class="text-base pt-2">Every Packages Available We Provided</span>
                 </div>
-                {{-- Responsive --}}
                 <div class="relative flex justify-center items-center xl:block xl:absolute xl:right-[10%]">
                     <div class="flex items-center rounded px-4 py-3 text-sm font-medium leading-none text-gray-600">
                         <p class="pr-2">Sort:</p>
@@ -239,23 +233,22 @@
             <section class="text-gray-600 body-font overflow-hidden">
                 <div class="container max-w-5xl px-5 py-10 mx-auto">
                     <div class="-my-8 divide-y-2 divide-gray-100">
-                        @foreach ($tours as $tour)
-                            {{-- responsive --}}
+                        @foreach ($packages as $package)
                             <div class="py-8 px-5 flex flex-col md:flex-row flex-wrap md:flex-nowrap hover:rounded-xl hover:bg-gray-100 transition duration-300 ease-in-out">
                                 <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                                    <span class="font-semibold title-font text-gray-700">{{ $tour->tour_name }}</span>
-                                    <span class="mt-1 text-gray-500 text-sm">{{ $tour->created_at->format('d F Y | H:i:s') }}</span>
+                                    <span class="font-semibold title-font text-gray-700">{{ $package->package_name }}</span>
+                                    <span class="mt-1 text-gray-500 text-sm">{{ $package->created_at->format('d F Y | H:i:s') }}</span>
                                     <div class="flex justify-left h-full items-center">
-                                        <a href="{{ route('bookings.tour.createOne', $tour->id) }}" class="text-green-500 hover:text-green-400 uppercase text-lg font-semibold py-2 px-4 rounded-xl">Book Now</a>
+                                        <a href="{{ route('pbookings.stepOne', $package->id) }}" class="text-green-500 hover:text-green-400 uppercase text-lg font-semibold py-2 px-4 rounded-xl">Book Now</a>
                                     </div>
                                 </div>
                                 <div class="md:flex-grow">
-                                    <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ $tour->destination }}</h2>
-                                    <p class="leading-relaxed">{{ $tour->description }}</p>
+                                    <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">{{ $package->destination }}</h2>
+                                    <p class="leading-relaxed">{{ $package->description }}</p>
                                     <div class="flex flex-col">
-                                        <span class="py-2">Duration: {{ $tour->duration }} Days</span>
-                                        <span class="py-2">Price: ${{ $tour->price }}</span>
-                                        <a href="{{ route('offers.view.TourDetail', $tour->id) }}" class="text-green-500 inline-flex items-center">More Details
+                                        <span class="py-2">Duration: {{ $package->duration }} Days</span>
+                                        <span class="py-2">Price: ${{ $package->price }}</span>
+                                        <a href="{{ route('offers.view.PackageDetail', $package->id) }}" class="text-green-500 inline-flex items-center">More Details
                                             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path d="M5 12h14"></path>
                                                 <path d="M12 5l7 7-7 7"></path>
@@ -277,15 +270,15 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5" />
                         </svg>
-                        Tour Collection
+                        Package Collection
                     </span>
-                    <span class="text-base pt-2">Every Tours Available We Provided</span>
+                    <span class="text-base pt-2">Every Packages Available We Provided</span>
                 </div>
             </section>
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-4">
                     <span class="flex items-center justify-center text-3xl font-rozha p-5 mb-3">
-                        Gallery of Every Tours
+                        Gallery of Every Packages
                     </span>
                     <div id="gallery" class="relative w-full" data-carousel="slide">
                         <!-- Carousel wrapper -->
@@ -330,9 +323,9 @@
                         </button>
                     </div>
                     <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
-                        <button type="button" class="text-gray-700 hover:bg-gray-50 border border-gray-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">All Tours</button>
-                        @foreach ($tours as $tour)
-                            <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">{{ $tour->destination }}</button>
+                        <button type="button" class="text-gray-700 hover:bg-gray-50 border border-gray-600 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3">All Packages</button>
+                        @foreach ($packages as $package)
+                            <button type="button" class="text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center mr-3 mb-3 dark:text-white dark:focus:ring-gray-800">{{ $package->destination }}</button>
                         @endforeach
                     </div>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -342,14 +335,13 @@
                         <div>
                             <img class="h-auto max-w-full rounded-lg" src="https://dummyimage.com/1200x1000" alt="">
                         </div>
-                        {{-- responsive --}}
                         <div class="hidden sm:block">
                             <img class="h-auto max-w-full rounded-lg" src="https://dummyimage.com/1200x1000" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <a href="{{ route('gallery.viewAllTourImage') }}" class="text-black py-3 px-5 border border-black hover:bg-gray-100 rounded-full">Check More</a>
+                    <a href="{{ route('gallery.viewAllPackageImage') }}" class="text-black py-3 px-5 border border-black hover:bg-gray-100 rounded-full">Check More</a>
                 </div>
             </div>
         </section>

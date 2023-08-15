@@ -16,7 +16,7 @@
                                     <p class="mt-1 text-sm leading-6 text-gray-600">This new booking will be displayed publicly so be careful what you create.</p>
 
                                     <div class="col-span-full mt-10">
-                                        <label for="tours" class="block text-sm font-medium leading-6 text-gray-900">tours</label>
+                                        {{-- <label for="tours" class="block text-sm font-medium leading-6 text-gray-900">tours</label> --}}
                                         <div class="mt-2">
                                             <select id="tours" class="form-multiselect bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-96 p-2.5 dark:placeholder-gray-400 dark:focus:ring-indigo-500 dark:focus:border-indigo-500" name="tour_id">
                                                 @foreach ($tours as $tour)

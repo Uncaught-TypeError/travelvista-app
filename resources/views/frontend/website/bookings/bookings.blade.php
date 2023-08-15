@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="relative w-full h-screen flex flex-col sm:flex-row">
+        <div class="relative mt-24 w-full h-screen flex flex-col sm:flex-row">
             <span class="absolute top-1/2 sm:top-1/3 xl:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30 text-4xl text-gray-50 transition-opacity opacity-50 hover:opacity-100 uppercase cursor-pointer text-center">Choose your preference</span>
             <div class="relative w-full sm:w-1/2 h-full">
                 <img src="https://media.giphy.com/media/3QK1B9Z7zc82ogbskk/giphy.gif" class="absolute w-full h-full gif" alt="">
@@ -44,16 +44,22 @@
                     onmouseover="changeTextColor(this, true)"
                     onmouseleave="originalView(this)">
                 </div>
-                <a href="{{ route('bookings.tour.index') }}" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 p-4 z-20 font-light text-4xl border border-gray-500 text-layer font-roboto" onmouseleave="resetTextColor(this)" id="textSpan">
-                    Tour?
-                </a>
+                @if(auth()->check()) <!-- Check if user is authenticated -->
+                    <a href="{{ route('bookings.tour.index') }}" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 p-4 z-20 font-light text-4xl border border-gray-500 text-layer font-roboto" onmouseleave="resetTextColor(this)" id="textSpan">
+                        Tour?
+                    </a>
+                @else
+                    <a href="{{ route('login') }}" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 p-4 z-20 font-light text-4xl border border-gray-500 text-layer font-roboto" onmouseleave="resetTextColor(this)" id="textSpan">
+                        Tour?
+                    </a>
+                @endif
             </div>
             <div class="relative w-full sm:w-1/2 h-full">
                 <img src="https://media.giphy.com/media/MTxPddI9CsbI82OHux/giphy.gif" class="absolute w-full h-full gif" alt="">
                 <img src="{{ asset('images/gifss1.png') }}" alt="" class="absolute w-full h-full opacity-100" id="removeImg2">
                 <div class="absolute w-full h-full z-10 hover:opacity-0 blur-layer" onmouseover="changeTextColor2(this, true)"
                 onmouseleave="originalView2(this)"></div>
-                <a href="" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 p-4 z-20 font-light text-4xl border border-gray-500 text-layer font-roboto" id="textSpan2">
+                <a href="{{ route('pbookings.package.index') }}" class="absolute top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 p-4 z-20 font-light text-4xl border border-gray-500 text-layer font-roboto" id="textSpan2">
                     Package?
                 </a>
             </div>

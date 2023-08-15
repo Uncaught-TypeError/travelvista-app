@@ -1,4 +1,5 @@
 <x-app-layout>
+    {{-- UserProfile --}}
     <div class="bg-no-repeat bg-cover md:h-[300px]" style="background-image: @isset($userProfile->bgimage) url('{{ Storage::url($userProfile->bgimage) }}') @endisset;">
         <div class="p-16">
             <div class="mt-24 p-8 shadow bg-white">
@@ -76,6 +77,5 @@
             </div>
         </div>
     </div>
-
 </x-app-layout>
 

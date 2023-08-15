@@ -14,16 +14,16 @@
             <div class="pr-0 md:pr-3">
                 <nav class="md:mb-10 list-none">
                     <li class="p-1">
-                        <a class="text-gray-600 hover:text-gray-800 cursor-pointer">About</a>
+                        <a href="{{ route('abouts.index') }}" class="text-gray-600 hover:text-gray-800 cursor-pointer">About</a>
                     </li>
                     <li class="p-1">
-                        <a class="text-gray-600 hover:text-gray-800 cursor-pointer">Tours</a>
+                        <a href="{{ route('bookings.tour.index') }}" class="text-gray-600 hover:text-gray-800 cursor-pointer">Tours</a>
                     </li>
                     <li class="p-1">
-                        <a class="text-gray-600 hover:text-gray-800 cursor-pointer">Packages</a>
+                        <a href="{{ route('pbookings.package.index') }}" class="text-gray-600 hover:text-gray-800 cursor-pointer">Packages</a>
                     </li>
                     <li class="p-1">
-                        <a class="text-gray-600 hover:text-gray-800 cursor-pointer">Contact</a>
+                        <a href="{{ route('contacts.index') }}" class="text-gray-600 hover:text-gray-800 cursor-pointer">Contact</a>
                     </li>
                 </nav>
             </div>
@@ -48,7 +48,7 @@
         <div class="container mx-auto flex flex-col flex-wrap px-5 py-4 sm:flex-row">
         <p class="text-center text-sm text-gray-500 sm:text-left">
             © 2020 TravelVista —
-            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="ml-1 text-gray-600" target="_blank">@nosleep.dev</a>
+            <a href="https://twitter.com/aungchitmin_dev" rel="noopener noreferrer" class="ml-1 text-gray-600" target="_blank">@nosleep.dev</a>
         </p>
         <span class="mt-2 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
             <a class="text-gray-500 image-container">

@@ -35,45 +35,26 @@
             </div>
         </div>
 
-        <section class="min-h-screen relative bg-gray-50">
-            <div class="absolute top-0 left-0 w-full h-full">
-                <video src="../videos/vflower.mp4" class="relative w-full h-full object-cover" autoplay muted loop></video>
-            </div>
-
-            <!-- Transparent Overlay -->
-            <div class="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
-
-            <div class="relative z-10 flex justify-center items-center min-h-screen">
-                <div class="flex flex-col justify-center items-center text-center">
-                    <span class="uppercase font-roboto font-extrabold text-4xl md:text-5xl xl:text-7xl p-4 text-white">Travel with US</span>
-                    <span class="max-w-3xl text-sm leading-loose text-center sm:text-base normal-case text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque ut natus, culpa odio maiores provident atque, iusto obcaecati dicta expedita a repellat. Minima repellat eaque necessitatibus aperiam nobis, culpa totam.</span>
-                    <span class="max-w-3xl text-sm leading-loose text-center sm:text-base normal-case text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, voluptate.</span>
-                    <span class="max-w-3xl text-sm leading-loose text-center sm:text-base normal-case text-white">Mail: vista@gmail.com</span>
-                    <span class="max-w-3xl text-sm leading-loose text-center sm:text-base normal-case text-white">Tel: 123-456-7890</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="body-font relative text-gray-600 mt-10">
-            <div class="absolute inset-0 bg-gray-300">
-                <iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.434059705293!2d96.1513908105849!3d16.804809319260162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1eca76d77b75f%3A0xf2a90867ee044ef8!2sVista%20Bar!5e0!3m2!1sen!2smm!4v1691429468005!5m2!1sen!2smm" style="filter: grayscale(1) contrast(1.2) opacity(0.4);"></iframe>
-                </div>
-                <div class="container mx-auto flex px-5 py-24">
-                    <div class="relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3">
-                        <h2 class="title-font mb-1 text-lg font-medium text-gray-900">Contact Us</h2>
-                        <p class="mb-5 leading-relaxed text-gray-600">We are available 24/7 for you.</p>
-                        <div class="relative mb-4">
-                        <label for="email" class="text-sm leading-7 text-gray-600">Email</label>
-                        <input type="email" id="email" name="email" class="w-full rounded border border-gray-300 bg-white px-3 py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-gray-500 focus:ring-2 focus:ring-gray-200" />
+        <section class="mt-28 h-screen flex justify-center items-center">
+            <div class="bg-gray-100">
+                <div class="bg-white p-6  md:mx-auto">
+                    <svg viewBox="0 0 24 24" class="text-green-600 w-16 h-16 mx-auto my-6">
+                        <path fill="currentColor"
+                            d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
+                        </path>
+                    </svg>
+                    <div class="text-center">
+                        <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Booking Complete!</h3>
+                        <p class="text-gray-600 my-2">Thank you for travelling with us.</p>
+                        <p> Have a great day!  </p>
+                        <div class="py-10 text-center">
+                            <a href="{{ route('home') }}" class="px-12 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3">
+                                GO BACK
+                            </a>
                         </div>
-                        <div class="relative mb-4">
-                        <label for="message" class="text-sm leading-7 text-gray-600">Message</label>
-                        <textarea id="message" name="message" class="h-32 w-full resize-none rounded border border-gray-300 bg-white px-3 py-1 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-gray-500 focus:ring-2 focus:ring-gray-200"></textarea>
-                        </div>
-                        <button class="rounded border-0 bg-gray-500 px-6 py-2 text-lg text-white hover:bg-gray-600 focus:outline-none">Button</button>
-                        <p class="mt-3 text-xs text-gray-500 text-center">vista@gmail.com</p>
                     </div>
                 </div>
+            </div>
         </section>
         @include('reuse_codes._footer')
     </body>
@@ -118,3 +99,4 @@
         dropdownMenu3.classList.toggle('hidden');
     });
 </script>
+<script src="{{ mix('node_modules/flowbite/dist/flowbite.min.js') }}"></script>

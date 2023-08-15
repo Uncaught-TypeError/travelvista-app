@@ -1,4 +1,6 @@
 <section class="fixed top-0 left-0 w-full bg-white shadow px-10 py-4 flex flex-row justify-center sm:justify-between items-center z-50">
+
+    {{-- Logo --}}
     <div class="flex flex-row items-center">
         <div>
             <a href="{{ route('home') }}">
@@ -10,12 +12,15 @@
             <span class="text-sm text-gray-500 p-1">One for All</span>
         </div>
     </div>
+
     <!-- Hidden Icon -->
     <div class="sm:hidden absolute top-10 right-5" id="dropdown-btn">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
     </div>
+
+    {{-- DropDown --}}
     <div class="hidden bg-white fixed top-0 left-0 w-full h-full z-50" id="dropdown-div">
         <div class="flex justify-center items-center flex-col">
             <div class="relative p-5">
@@ -37,7 +42,7 @@
                         @auth
                         @unlessrole('admin')
                             <li class="border-t flex justify-center items-center"><a href="{{ route('userprofile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Profile</a></li>
-                            <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
+                            <li class="border-t flex justify-center items-center"><a href="{{ route('userbookings.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
                         @endunlessrole
                             <li class="border-t flex justify-center items-center"><a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Dashboard</a></li>
                             <li class="border-t flex justify-center items-center"><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Log Out</a></li>
@@ -74,6 +79,7 @@
             <a href="{{ route('abouts.index') }}" class="uppercase text-sm p-3 hover:text-gray-500">About</a>
             <a href="{{ route('offers.index') }}" class="uppercase text-sm p-3 hover:text-gray-500">Offers</a>
             <a href="{{ route('contacts.index') }}" class="uppercase text-sm p-3 hover:text-gray-500">Contact</a>
+            {{-- <a href="{{ route('success.index') }}" class="uppercase text-sm p-3 hover:text-gray-500">Success</a> --}}
         </div>
         <div class="px-2">
             <div class="relative">
@@ -94,7 +100,7 @@
                     @auth
                     @unlessrole('admin')
                     <li><a href="{{ route('userprofile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Profile</a></li>
-                    <li><a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
+                    <li><a href="{{ route('userbookings.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">My Bookings</a></li>
                     @endunlessrole
                     <li><a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-black">Dashboard</a></li>
                     <li class="border-t">
@@ -121,4 +127,5 @@
             <a href="{{ route('bookings.index') }}" class="uppercase text-sm font-semibold text-white bg-gray-600 hover:bg-gray-500 p-3">Book Now</a>
         </div>
     </div>
+
 </section>
