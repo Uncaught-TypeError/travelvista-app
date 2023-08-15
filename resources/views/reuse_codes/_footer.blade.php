@@ -1,6 +1,6 @@
 <footer class="body-font bg-slate-100 text-gray-600 mt-10">
     <div class="container mx-auto flex flex-col flex-wrap px-5 py-10 md:flex-row md:flex-nowrap md:items-center lg:items-start">
-        <div class="mx-auto w-72 flex-shrink-0 text-center md:mx-0 md:text-left">
+        <div class="mx-auto w-auto sm:w-72 flex-shrink-0 text-center md:mx-0 md:text-left">
             <a class="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
                 <img src="{{ asset('images/logo.png') }}" class="w-12 h-12" alt="">
                 <div class="flex flex-col">

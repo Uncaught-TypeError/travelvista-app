@@ -63,7 +63,7 @@
                 <a href="{{ route('contacts.index') }}" class="uppercase font-semibold text-xl p-3 hover:text-gray-500">Contact</a>
             </div>
             <div class="mt-10">
-                <a href="" class="uppercase text-lg font-semibold text-white bg-gray-600 hover:bg-gray-500 p-3">Book Now</a>
+                <a href="{{ route('bookings.index') }}" class="uppercase text-lg font-semibold text-white bg-gray-600 hover:bg-gray-500 p-3">Book Now</a>
             </div>
         </div>
         <div class="absolute top-10 right-5 hidden" id="close-btn">

@@ -29,7 +29,7 @@
             </section>
             <form class="flex justify-center items-center mt-5" method="POST" action="{{ route('offers.search') }}">
                 @csrf
-                <div class="flex w-1/3">
+                <div class="flex w-1/2 sm:w-1/3">
                     <div class="relative w-full">
                         <input type="search" id="tourdestination" name="tourdestination" class="z-20 block w-full rounded-lg border border-gray-300  bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-gray-500 focus:ring-gray-500" placeholder="Search Destination..." required />
 
@@ -122,7 +122,7 @@
             </section>
             <form class="flex justify-center items-center mt-5" method="POST" action="{{ route('offers.search2') }}">
                 @csrf
-                <div class="flex w-1/3">
+                <div class="flex w-1/2 sm:w-1/3">
                     <div class="relative w-full">
                         <input type="search" id="packagedestination" name="packagedestination" class="z-20 block w-full rounded-lg border border-gray-300  bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-gray-500 focus:ring-gray-500" placeholder="Search Destination..." required />
 
