@@ -243,4 +243,20 @@
     });
 </script>
 
+{{-- Sorting --}}
+<script>
+    // Wait for the document to be ready
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the reference to the form and select element
+        const form = document.getElementById('sortForm');
+        const select = document.getElementById('sorting');
+
+        // Add an event listener to the select element
+        select.addEventListener('change', function() {
+            // Submit the form when a new option is selected
+            form.submit();
+        });
+    });
+</script>
+
 <script src="{{ mix('node_modules/flowbite/dist/flowbite.min.js') }}"></script>

@@ -24,10 +24,9 @@ class BookingsController extends Controller
     {
         $tours = Tour::whereDoesntHave('bookings')->get();
         $tourfilter = null;
-        $packagefilter = null;
         $mapDestination = null;
         $tourInfomation = null;
-        return view('frontend.website.bookings.tour.index', compact('tours', 'tourInfomation', 'mapDestination', 'tourfilter', 'packagefilter'));
+        return view('frontend.website.bookings.tour.index', compact('tours', 'tourInfomation', 'mapDestination', 'tourfilter'));
     }
 
     public function searchTour(Request $request){
@@ -157,6 +156,31 @@ class BookingsController extends Controller
 
         return view('frontend.success.success');
         // return redirect()->route('admin.bookings.index')->with('success', 'Booking Created successfully.');
+    }
+
+    public function sort(Request $request)
+    {
+        $sort = $request->input('sorting', 'default');
+        // dd($sort);
+        $tourQuery = Tour::whereDoesntHave('bookings');
+
+        if ($sort === 'alphasc') {
+            $tourQuery->orderBy('tour_name', 'asc');
+        } elseif ($sort === 'alphdesc') {
+            $tourQuery->orderBy('tour_name', 'desc');
+        } elseif ($sort === 'durasc') {
+            $tourQuery->orderBy('duration', 'asc');
+        } elseif ($sort === 'duresc') {
+            $tourQuery->orderBy('duration', 'desc');
+        }
+
+        $tours = $tourQuery->get();
+
+        $tourfilter = null;
+        $mapDestination = null;
+        $tourInfomation = null;
+
+        return view('frontend.website.bookings.tour.index', compact('tours', 'tourInfomation', 'mapDestination', 'tourfilter'));
     }
 
     /**

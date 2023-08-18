@@ -192,7 +192,7 @@
                 <div class="relative flex justify-center items-center xl:block xl:absolute xl:right-[10%]">
                     <div class="flex items-center rounded px-4 py-3 text-sm font-medium leading-none text-gray-600">
                         <p class="pr-2">Sort:</p>
-                        <form action="" method="GET" id="sortForm">
+                        <form action="{{ route('bookings.tours.sort') }}" method="GET" id="sortForm">
                             @csrf
                             <select id="sorting" name="sorting" class="w-full rounded-lg border border-gray-300 bg-gray-50 p-1 text-sm text-gray-900">
                                 <option value="default">Default</option>

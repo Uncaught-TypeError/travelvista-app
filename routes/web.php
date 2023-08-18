@@ -12,6 +12,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\Frontend\Booking\PackagebookingsController;
 use App\Http\Controllers\frontend\Booking\UserbookingController;
+use App\Http\Controllers\Frontend\Complain\ComplaintController;
+use App\Http\Controllers\Frontend\Review\ReviewController as ReviewReviewController;
 use App\Http\Controllers\Frontend\SuccessController;
 use App\Http\Controllers\PackageBookingController;
 use App\Http\Controllers\PackageController;
@@ -47,7 +49,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $tours = Tour::inRandomOrder()->take(2)->get();
     $packages = Package::inRandomOrder()->take(2)->get();
-    return view('welcome', compact('tours', 'packages'));
+
+    // $review = Review::where('rating', '5')
+    //             ->whereNotNull('comment')
+    //             ->first();
+
+    $reviews = Review::all();
+
+    foreach ($reviews as $review) {
+        if ($review->rating == 5 && !is_null($review->comment)) {
+            $user_name = $review->user->name;
+            $user_comment = $review->comment;
+            break;
+        }
+        else{
+            $user_name = null;
+            $user_comment = null;
+        }
+    }
+    return view('welcome', compact('tours', 'packages', 'user_name', 'user_comment'));
+
+    // dd($review);
+
 })->name('home');
 
 //FrontEnd
@@ -59,14 +82,26 @@ Route::get('/offers/viewPackageDetail/{package}', [OffersController::class, 'vie
 Route::post('/offers/search', [OffersController::class, 'searchTour'])->name('offers.search');
 Route::post('/offers/search2', [OffersController::class, 'searchTour2'])->name('offers.search2');
 
+Route::post('/reviews/store2', [ReviewController::class, 'store2'])->name('reviews.store2');
+Route::get('/reviews/tour/{tour}', [ReviewReviewController::class, 'createReview'])->name('reviews.tour.create');
 
+Route::resource('/reviews', ReviewReviewController::class);
 Route::resource('/contacts', ContactsController::class);
 
 //Careful with the similar controller name
 Route::middleware(['auth'])->group(function () {
     Route::get('/bookings/tours', [BookingsController::class, 'tourIndex'])->name('bookings.tour.index');
     Route::get('/pbookings/packages', [PackagebookingsController::class, 'packageIndex'])->name('pbookings.package.index');
+    Route::get('/pbookings/packages/sort', [PackagebookingsController::class, 'sort'])->name('pbookings.packages.sort');
+    Route::get('/bookings/tours/sort', [BookingsController::class, 'sort'])->name('bookings.tours.sort');
 
+    Route::get('/reviews/tour/{tour}', [ReviewReviewController::class, 'createReview'])->name('reviews.tour.create');
+    Route::get('/reviews/package/{package}', [ReviewReviewController::class, 'createReview2'])->name('reviews.package.create');
+
+    Route::post('/reviews/tour/store', [ReviewReviewController::class, 'storeReview'])->name('reviews.tour.store');
+    Route::post('/reviews/package/store', [ReviewReviewController::class, 'storeReview2'])->name('reviews.package.store');
+
+    Route::resource('/reviews', ReviewReviewController::class);
 
     Route::resource('/bookings', BookingsController::class);
     Route::resource('/pbookings', PackagebookingsController::class);
@@ -77,8 +112,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pbookings/packageSearch', [PackagebookingsController::class, 'searchPackage'])->name('packages.search');
     Route::post('/pbookings/package/map', [PackagebookingsController::class, 'searchMap'])->name('pbookings.map.search');
 
-    Route::get('/bookings/tour/createOne/{tour}', [BookingsController::class, 'createOne'])->name('bookings.tour.createOne');
+    Route::get('/bookings/tour/createOne/{id}', [BookingsController::class, 'createOne'])->name('bookings.tour.createOne');
     Route::post('/bookings/tour/store/createOne', [BookingsController::class, 'storecreateOne'])->name('bookings.tour.store.createOne');
+
 
     Route::get('/pbookings/package/stepOne/{package}', [PackagebookingsController::class, 'stepOne'])->name('pbookings.stepOne');
     Route::get('/pbookings/package/stepTwo', [PackagebookingsController::class, 'stepTwo'])->name('pbookings.stepTwo');
@@ -93,6 +129,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::resource('/userbookings', UserbookingController::class);
+
+    Route::resource('/complaint', ComplaintController::class);
 });
 
 

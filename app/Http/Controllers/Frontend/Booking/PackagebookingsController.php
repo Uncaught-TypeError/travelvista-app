@@ -138,4 +138,30 @@ class PackagebookingsController extends Controller
         return view('frontend.success.success');
         // return redirect()->route('admin.bookings.index')->with('success', 'Booking Created successfully.');
     }
+
+    public function sort(Request $request)
+    {
+        $sort = $request->input('sorting', 'default');
+        // dd($sort);
+        $packagesQuery = Package::whereDoesntHave('packagebookings');
+
+        if ($sort === 'alphasc') {
+            $packagesQuery->orderBy('package_name', 'asc');
+        } elseif ($sort === 'alphdesc') {
+            $packagesQuery->orderBy('package_name', 'desc');
+        } elseif ($sort === 'durasc') {
+            $packagesQuery->orderBy('duration', 'asc');
+        } elseif ($sort === 'duresc') {
+            $packagesQuery->orderBy('duration', 'desc');
+        }
+
+        $packages = $packagesQuery->get();
+
+        $packagefilter = null;
+        $mapDestination = null;
+        $packageInfomation = null;
+
+        return view('frontend.website.bookings.package.index', compact('packages', 'packageInfomation', 'mapDestination', 'packagefilter'));
+    }
+
 }
