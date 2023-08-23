@@ -29,6 +29,11 @@ Generate a unique application key:
 
 `php artisan key:generate`
 
+### Step 4: Database Migration and Seeding
+Run database migrations and seed the database with sample data:
+
+`php artisan migrate --seed`
+
 ### Step 5: Start the Development Server
 Start the Laravel development server:
 
