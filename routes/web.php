@@ -54,6 +54,9 @@ Route::get('/', function () {
     //             ->whereNotNull('comment')
     //             ->first();
 
+    $user_comment = null;
+    $user_name = null;
+
     $reviews = Review::all();
 
     foreach ($reviews as $review) {
@@ -112,7 +115,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pbookings/packageSearch', [PackagebookingsController::class, 'searchPackage'])->name('packages.search');
     Route::post('/pbookings/package/map', [PackagebookingsController::class, 'searchMap'])->name('pbookings.map.search');
 
-    Route::get('/bookings/tour/createOne/{id}', [BookingsController::class, 'createOne'])->name('bookings.tour.createOne');
+    Route::get('/bookings/tour/createOne/{tour}', [BookingsController::class, 'createOne'])->name('bookings.tour.createOne');
     Route::post('/bookings/tour/store/createOne', [BookingsController::class, 'storecreateOne'])->name('bookings.tour.store.createOne');
 
 

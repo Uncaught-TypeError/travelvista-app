@@ -86,6 +86,19 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+            @unlessrole('admin')
+                <x-responsive-nav-link :href="route('userprofile')" :active="request()->routeIs('userprofile')">
+                    {{ Auth::user()->name }}
+                </x-responsive-nav-link>
+            @endunlessrole
+            @role('admin')
+            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                {{ __('Admin') }}
+            </x-responsive-nav-link>
+            @endrole
         </div>
 
         <!-- Responsive Settings Options -->
@@ -96,9 +109,14 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                <x-responsive-nav-link  :href="route('profile.edit')">
+                    {{ __('Account Security') }}
                 </x-responsive-nav-link>
+                @unlessrole('admin')
+                <x-responsive-nav-link  :href="route('userProfile.edit')">
+                    {{ __('Profile Information') }}
+                </x-responsive-nav-link>
+                @endunlessrole
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
