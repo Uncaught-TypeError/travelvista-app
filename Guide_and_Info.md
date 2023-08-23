@@ -4,9 +4,9 @@ Welcome to the setup and installation guide for the Laravel project! This guide 
 ## Prerequisites
 Before you begin, make sure you have the following software installed on your machine:
 
-Composer
-Node.js and npm
-Git
+* Composer
+* Node.js and npm
+* Git
 
 ### Step 1: Clone the Repository
 Open your terminal and navigate to the directory where you want to clone the project. Run the following command to clone the repository:
@@ -15,3 +15,12 @@ Open your terminal and navigate to the directory where you want to clone the pro
 Navigate to the project directory using the terminal:
 
 `cd your-laravel-project`
+
+Install the project's PHP dependencies using Composer:
+
+`composer install`
+
+### Step 3: Set Up Environment Variables
+Copy the .env.example file and create a new .env file:
+
+`cp .env.example .env`
