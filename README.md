@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-### Travel Vista (Travel & Tour System)
+# Travel Vista (Travel & Tour System)
 ## Reuploaded Version due to Technical Error
-# Check the Guide_and_Info.md for installation!
+### Check the Guide_and_Info.md for installation!
 
 ![FireShot Capture 010 - Laravel - 127 0 0 1](https://github.com/Uncaught-TypeError/travelvista-app/assets/95492327/4d914b15-73a0-4186-8362-cddd6650eebb)
 ![FireShot Capture 011 - Laravel - 127 0 0 1](https://github.com/Uncaught-TypeError/travelvista-app/assets/95492327/70ee9801-ab88-40ff-b1c9-bf40278f6155)
