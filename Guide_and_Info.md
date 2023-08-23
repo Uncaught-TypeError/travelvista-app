@@ -9,6 +9,7 @@ Before you begin, make sure you have the following software installed on your ma
 * Git
 
 ## Step 1: Clone the Repository
+Clone the project.
 
 ## Step 2: Install Composer Dependencies
 Navigate to the project directory using the terminal:
